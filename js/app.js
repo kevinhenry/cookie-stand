@@ -29,7 +29,7 @@ let seattle = {
   },
   // A method to calculate and populate our number of cookies sold per hour array
   calcCookiesSoldEachHour: function () {
-    let randomCustomerForOneHour = this.randomCustomerPerHour();
+    let randomCustomerForOneHour = this.randomCustomerEachHour();
     console.log(randomCustomerForOneHour);
     console.log('I am inside of calcCoockiesSoldEachHour');
     // Do something maybe use a for loop
