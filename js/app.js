@@ -15,14 +15,14 @@ let seattle = {
   // The maximum number of customers per hour.
   maximumCustomerEachHour: 65,
   // The average number of cookies purchased per customer
-  averageCookiesSoldEachCustomer: 6.3,
+  averageCookiesSoldPerCustomer: 6.3,
   // Will hold the calculated number of cookies sold each hour
   cookiesSoldPerHourArray: [],
   // Will hold the calculated number of coookies sold in the store all day long
   dailyStoreTotal: 0,
   // A method to calculate random number of customers per hour
-  // docs used: https://
-  randomCustomerPerHour: function(){
+  // docs used: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+  randomCustomerEachHour: function(){
     // console.log('Im in randomCustomerEachHour');
     // Do something // return some math here
     return Math.floor(Math.random() * (this.maximumCustomerEachHour - this.minimumCustomerEachHour + 1) + this.minimumCustomerEachHour);
@@ -45,6 +45,3 @@ let seattle = {
     // Do something
   }
 };
-
-
-
