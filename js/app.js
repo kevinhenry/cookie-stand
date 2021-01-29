@@ -9,7 +9,7 @@ let seattleList = document.getElementById('seattle');
 let tokyoList = document.getElementById('tokyo');
 let dubaiList = document.getElementById('dubai');
 let parisList = document.getElementById('paris');
-let limaList = document.getElementByID('lima');
+let limaList = document.getElementById('lima');
 
 
 // Write 5 object literals - will finish one first, then do the others based on that
@@ -17,7 +17,7 @@ let seattle = {
   name: 'Seattle',
   minCust: 23,
   maxCust: 65,
-  aveCust: 6.3,
+  aveSale: 6.3,
   cookiesPerHourArray: [],
   dailyTotal: 0,
 
@@ -72,7 +72,7 @@ let tokyo = {
   name: 'Tokyo',
   minCust: 3,
   maxCust: 24,
-  aveCust: 1.2,
+  aveSale: 1.2,
   cookiesPerHourArray: [],
   dailyTotal: 0,
 
@@ -103,8 +103,8 @@ let tokyo = {
 let dubai = {
   name: 'Dubai',
   minCust: 11,
-  maxCust: 24,
-  aveCust: 3.7,
+  maxCust: 38,
+  aveSale: 3.7,
   cookiesPerHourArray: [],
   dailyTotal: 0,
 
@@ -134,9 +134,9 @@ let dubai = {
 
 let paris = {
   name: 'Paris',
-  minCust: 3,
-  maxCust: 24,
-  aveCust: 1.2,
+  minCust: 20,
+  maxCust: 38,
+  aveSale: 2.3,
   cookiesPerHourArray: [],
   dailyTotal: 0,
 
@@ -166,9 +166,9 @@ let paris = {
 
 let lima = {
   name: 'Lima',
-  minCust: 3,
-  maxCust: 24,
-  aveCust: 1.2,
+  minCust: 2,
+  maxCust: 16,
+  aveSale: 4.6,
   cookiesPerHourArray: [],
   dailyTotal: 0,
 
