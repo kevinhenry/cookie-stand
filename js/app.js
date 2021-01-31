@@ -1,62 +1,70 @@
 'use strict';
 
-console.log('hello world');
+// global variables
+// hours array
+const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-// Get the each store element by id.
+// TODO: need to elements by id for the 5 lists
+let seattleList = document.getElementById('seattle');
+let tokyoList = document.getElementById('tokyo');
+let dubaiList = document.getElementById('dubai');
+let parisList = document.getElementById('paris');
+let limaList = document.getElementById'(lima');
 
-let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-// function randomCustomerPerHour () {
-// Gets the randomcustersper hour
-// }
-
+// Write 5 object literals - will finish one first, then do the others based on that
 let seattle = {
   name: 'Seattle',
-  // The minimum number of customers per hour.
-  minimumCustomerEachHour: 23,
-  // The maximum number of customers per hour.
-  maximumCustomerEachHour: 65,
-  // The average number of cookies purchased per customer
-  averageCookiesSoldPerCustomer: 6.3,
-  // Will hold the calculated number of cookies sold each hour
-  cookiesSoldEachHour: [],
-  // Will hold the calculated number of coookies sold in the store all day long
-  dailyStoreTotal: 0,
-  // A method to calculate random number of customers per hour
+  minCust: 23,
+  maxCust: 65,
+  aveCust: 6.3,
+  cookiesPerHourArray: [],
+  dailyTotal: 0,
+ 
+  // get random number of customers for an hour
   // docs used: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-
-  randomCustomerEachHour: function() {
-    console.log('Im in randomCustomerEachHour');
-    // Do something // return some math here
-    return Math.floor(Math.random() * (this.maximumCustomerEachHour - this.minimumCustomerEachHour + 1) + this.minimumCustomerEachHour);
+  getRandomCust: function () {
+    //  console.log('I am in the getRandomCust method');
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   },
 
-  // A method to calculate and populate our number of cookies sold per hour array
-  calcCookiesSoldEachHour: function() {
-    for(var i = 0; i < hours.length; i++ ){
-    // Do something // return some math here
-      let cookiesSold = Math.ceil(this.randomCustomerEachHour()/ this.averageCookiesSoldPerCustomer);
-      this.cookiesSoldEachHour.push(cookiesSold);
-      console.log(this.cookiesSoldEachHour);
-      //console.log();
+  // calculate the number of cookies for each hour
+  // iteratively get random cust for each hour * aveSale 
+  calcCookiesPerHour: function () {
+    for (let i = 0; i < hours.length; i++) {
+    let randomCust = this.getRandomCust();
+    // console.log('I am in the calcCookiesPerHour method');
+    let hourlyTotal = Math.ceil(randomCust * this.aveSale);
+    // console.log(hourlyTotal);
+    this.cookiesPerHourArray.push(hourlyTotal);
+    this.dailyTotal += hourlyTotal;
     }
+  //
+  //
   },
 
-  //  let randomCustomerForOneHour = this.randomCustomerEachHour();
-  //  console.log(randomCustomerForOneHour);
-  //  console.log('I am inside of calcCoockiesSoldEachHour');
-  // Do something maybe use a for loop
-  // Multiply customer number by average
-  // Handle the number. Do some rouding
-  // Proof of life
-  // Push into the cookiesSoldPerHourArray
-
-
-  // a method to render the list items.
-  render: function (){
-    // this.calcCookiesSoldEachHour();
-    console.log('I am in the render method');
-    // Do something
+  // render results. at this point we have 14 hours worth of cookie sales
+  render: function () {
+    this.calcCookiesPerHour();
+    // console.log('I am in the render method');
+    
+    for (let i = 0; i < hours.length; i++) {
+      // TODO: need torender the following string as a list item
+      // '6am: 16 cookies'
+      // create element
+      let li = document.createElement('li');
+      // give it content
+      li.textContent = `${hours[i]}: ${this.cookiesPerHourArray[i]} cookies`;
+      // append it to the DOM
+      seattleList.appendChild(li);
+    }
+    let li = document.createElement('li');
+    // give it content
+    li.textContent = `Total: ${this.dailyTotal} cookies`;
+    seattleList.appendChild(li);
   }
 };
+
+// Executable Code
 seattle.render();
+tokyo.render();
