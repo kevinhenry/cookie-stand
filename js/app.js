@@ -2,7 +2,7 @@
 
 // global variables
 // hours array
-const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+const hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
 // TODO: need to elements by id for the 5 lists
 // let seattleList = document.getElementById('seattle');
@@ -223,17 +223,17 @@ Store.prototype.randomCustEachHour = function () {
   return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
 };
 
-Store.prototype.calcCookiesSoldHourly = function () {
+Store.prototype.calcCookiesSoldHour = function () {
   for (let i = 0; i < hours / length; i++) {
-    let randomCust = this.randomCustEachHour();
-    let hourlyTotal = Math.ceil(randomCust * this.avg);
-    this.cookiesPerHour.push(hourlyTotal);
-    this.dailyTotal = this.dailyTotal + this.cookiesPerHour[i];
+    let randomCust = this.randomCustHour();
+    let hourTotal = Math.ceil(randomCust * this.avg);
+    this.cookiesPerHour.push(hourTotal);
+    this.dayTotal = this.dayTotal + this.cookiesPerHour[i];
   }
 };
 
 Store.prototype.render = function () {
-  this.calcCookiesSoldHourly();
+  this.calcCookiesSoldHour();
   let tr = document.createElement('tr');
 
   let th = document.createElement('th');
@@ -250,34 +250,31 @@ Store.prototype.render = function () {
   }
 
   let td = document.createElement('td');
-  td.textContent = this.dailyTotal;
+  td.textContent = this.dayTotal;
   tr.appendChild(td);
   tbody.appendChild(tr);
 };
 
 function renderHeader() {
   let header = document.getElementById('first-row');
-  let th = document.createElement('th');
-  header.appendChild(th);
-
-  for (let i = 0; i < hours.length; i++) {
+  for (let i = 0; i < hours.length; i++){
     let th = document.createElement('th');
     th.textContent = hours[i];
     header.appendChild(th);
   }
 
-  th = document.createElement('th');
-  th.textContent = 'Store Daily Total';
+  let th = document.createElement('th');
+  th.textContent = 'Daily Location Total';
   header.appendChild(th);
   // this refers to the intance of Stores that WILL BE created
   // this refers to the objects created by Stores
 }
 
-let seattleShop = new Store('seattle', 23, 65, 6.3, []);
-let tokyoShop = new Store('tokyo', 3, 24, 1.2, []);
-let dubaiShop = new Store('dubai', 11, 38, 3.7, []);
-let parisShop = new Store('paris', 11, 38, 2.3, []);
-let limaShop = new Store('lima', 2, 16, 4.6, []);
+let seattleShop = new Store('Seattle', 23, 65, 6.3, []);
+let tokyoShop = new Store('Tokyo', 3, 24, 1.2, []);
+let dubaiShop = new Store('Dubai', 11, 38, 3.7, []);
+let parisShop = new Store('Paris', 11, 38, 2.3, []);
+let limaShop = new Store('Lima', 2, 16, 4.6, []);
 
 // Executable Code
 renderHeader();
