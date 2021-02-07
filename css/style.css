@@ -1,5 +1,5 @@
 body {
-  font-family:'Courier New', Courier, monospace;
+  font-family: 'Neuton', serif;
   background-color: bisque;
 }
 
@@ -22,14 +22,14 @@ section img {
   width: 600px;
 }
 
-article {
+/* article {
   width: 33%
   float: right;
-  margin-right: 10px;
-}
+  margin-right: 10px; */
+/* } */
 
 h3 {
-  font-family: 'DM Serif Text', serif;
+  font-family: 'Neuton', serif;
   font-size: 1.5em;
   margin: 10px;
 }
