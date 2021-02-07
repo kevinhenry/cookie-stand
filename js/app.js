@@ -1,7 +1,6 @@
 'use strict';
 
-// console.log('Hello');
-// 
+console.log('Hello');
 
 // let allStores = [];
 
@@ -10,7 +9,7 @@ let myContainer = document.getElementById('container');
 let myForm = document.querySelector('form');
 console.log(myForm);
 
-let cookieTable = document.quarySelector('table');
+// let cookieTable = document.quarySelector('table');
 const hour = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 const allStores = [];
 let footerTotals = [];
@@ -18,10 +17,10 @@ let grandTotal = 0;
 
 
 // let tbody = document.getElementById('body-rows');
-// const cookieTable = document.querySelector('table');
-// let tbody = document.createElement('tbody');
-// cookieTable.appendChild(tbody);
-// console.log(cookieTable);
+const cookieTable = document.querySelector('table');
+let tbody = document.createElement('tbody');
+cookieTable.appendChild(tbody);
+console.log(cookieTable);
 
 function Store (name, minHourCust, maxHourCust, avgSaleCust, imgSrc, cookiesPerHour) {
   this.name = name;
@@ -171,7 +170,7 @@ function calcFooterTotals(){
   grandTotal = 0
   for (let i = 0; i < hour.length; i++){
     let hourTotal = 0;
-    for (let j = 0; j < allstores.length; j++){
+    for (let j = 0; j < allStores.length; j++){
       hourTotal += allStores[j].cookiesPerHour[i];
     }
     footerTotals.push(hourTotal);
