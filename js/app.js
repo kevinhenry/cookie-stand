@@ -1,53 +1,4 @@
-'use strict';
 
-console.log('Hello');
-
-// let allStores = [];
-
-// this is for the section rendering // not relevant for table
-let myContainer = document.getElementById('container');
-let myForm = document.querySelector('form');
-console.log(myForm);
-
-// let cookieTable = document.quarySelector('table');
-const hour = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
-const allStores = [];
-let footerTotals = [];
-let grandTotal = 0;
-
-
-// let tbody = document.getElementById('body-rows');
-const cookieTable = document.querySelector('table');
-let tbody = document.createElement('tbody');
-cookieTable.appendChild(tbody);
-console.log(cookieTable);
-
-function Store (name, minHourCust, maxHourCust, avgSaleCust, imgSrc, cookiesPerHour) {
-  this.name = name;
-  this.min = minHourCust;
-  this.max = maxHourCust;
-  this.avg = avgSaleCust;
-  this.imgSrc = imgSrc;
-  this.cookiesPerHour = cookiesPerHour;
-  this.dayTotal = 0;
-  allStores.push(this);
-  // this.render();
-}
-
-Store.prototype.calcCookiesSoldHour = function () {
-  for (let i = 0; i < this.cookiesPerHour.length; i++) {
-    this.dayTotal += this.cookiesPerHour[i];
-    // let randomCust = this.randomCustHour();
-    // let hourTotal = Math.ceil(randomCust * this.avg);
-    // this.cookiesPerHour.push(hourTotal);
-    // this.dayTotal = this.dayTotal + this.cookiesPerHour[i];
-  }
-};
-
-// REF - Math.random
-// Store.prototype.randomCustHour = function () {
-// return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-// };
 
 Store.prototype.render = function () {
   // create tr and append to DOM, all of its content is below
@@ -209,3 +160,4 @@ renderFooter();
 
 
 myForm.AddEventListener('submit', handleSubmit);
+
