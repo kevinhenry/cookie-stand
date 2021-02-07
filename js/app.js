@@ -1,207 +1,163 @@
-'use strict';
-
-// global variables
-// hours array
-const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
-// TODO: need to elements by id for the 5 lists
-let seattleList = document.getElementById('seattle');
-let tokyoList = document.getElementById('tokyo');
-let dubaiList = document.getElementById('dubai');
-let parisList = document.getElementById('paris');
-let limaList = document.getElementById('lima');
 
 
-// Write 5 object literals - will finish one first, then do the others based on that
-let seattle = {
-  name: 'Seattle',
-  minCust: 23,
-  maxCust: 65,
-  aveSale: 6.3,
-  cookiesPerHourArray: [],
-  dailyTotal: 0,
+Store.prototype.render = function () {
+  // create tr and append to DOM, all of its content is below
+  let tr = document.createElement('tr'); // create tr
+  // let th = document.createElement('th');
+  // th.textContent = this.name;
+  cookieTable.appendChild(tr);
 
-  // get random number of customers for an hour
-  // docs used: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-  getRandomCust: function () {
-    //  console.log('I am in the getRandomCust method');
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-  },
-
-  // calculate the number of cookies for each hour
-  // iteratively get random cust for each hour * aveSale
-  calcCookiesPerHour: function () {
-    for (let i = 0; i < hours.length; i++) {
-      let randomCust = this.getRandomCust();
-      // console.log(randomCust);
-      let hourlyTotal = Math.ceil(randomCust * this.aveSale);
-      // console.log(hourlyTotal);
-      this.cookiesPerHourArray.push(hourlyTotal);
-      this.dailyTotal += hourlyTotal;
-    }
-    // console.log(this.cookiesPerHourArray);
-    // colsole.log('I am in the calcCookiesPerHour method');
-  },
-
-  // render results. at this point we have 14 hours worth of cookie sales
-  render: function () {
-    this.calcCookiesPerHour();
-    // console.log('I am in the render method');
-
-    for (let i = 0; i < hours.length; i++) {
-      // TODO: need torender the following string as a list item
-      // '6am: 16 cookies'
-      // create element
-      let li = document.createElement('li');
-      // give it content
-      li.textContent = `${hours[i]}: ${this.cookiesPerHourArray[i]} cookies`;
-      // append it to the DOM
-      seattleList.appendChild(li);
-    }
-
-    // total:
-    let li = document.createElement('li');
-    // give it content
-    li.textContent = `Total: ${this.dailyTotal} cookies`;
-    // append it to the DOM
-    seattleList.appendChild(li);
+  // create th, give content, append to DOM
+  let th = document.createElement('th');
+  th.textContent = this.name;
+  tr.appendChild(th);
+  // create multiple tds, give content, append to DOM
+  for (let i = 0; i < this.cookiesPerHour.length; i++) {
+    this.dayTotal += this.cookiesPerHour[i];
+    let td = document.createElement('td');
+    td.textContent = this.cookiesPerHour[i];
+    tr.appendChild(td);
   }
+  // create total td, give content, append to DOM
+  let td = document.createElement('td');
+  td.textContent = this.dayTotal;
+  tr.appendChild(td);
 };
 
-let tokyo = {
-  name: 'Tokyo',
-  minCust: 3,
-  maxCust: 24,
-  aveSale: 1.2,
-  cookiesPerHourArray: [],
-  dailyTotal: 0,
+Store.prototype.renderSection = function () {
+  // create section and append to DOM, all of its content is below
+  let section = document.createElement('section');
+  myContainer.appendChild(section);
 
-  getRandomCust: function () {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-  },
-  calcCookiesPerHour: function () {
-    for (let i = 0; i < hours.length; i++) {
-      let randomCust = this.getRandomCust();
-      let hourlyTotal = Math.ceil(randomCust * this.aveSale);
-      this.cookiesPerHourArray.push(hourlyTotal);
-      this.dailyTotal += hourlyTotal;
-    }
-  },
-  render: function () {
-    this.calcCookiesPerHour();
-    for (let i = 0; i < hours.length; i++) {
-      let li = document.createElement('li');
-      li.textContent = `${hours[i]}: ${this.cookiesPerHourArray[i]} cookies`;
-      tokyoList.appendChild(li);
-    }
-    let li = document.createElement('li');
-    li.textContent = `Total: ${this.dailyTotal} cookies`;
-    tokyoList.appendChild(li);
-  }
+  // create image, "give content", append to DOM
+  let img = document.createElement('img');
+  img.src = this.imgSrc;
+  img.alt = 'closeup picture of xxxx';
+  img.title = 'xxxx';
+  section.appendChild(img);
+
+  // create article and append to DOM, all of its content is below
+  let article = document.createElement('article');
+  section.appendChild(article);
+
+  // create h3, give it content, append to DOM
+  let h3 = document.createElement('h3');
+  h3.textContent = this.name;
+  article.appendChild(h3);
+
+  // create p, give it content, append to DOM
+  let p = document.createElement('p');
+  p.textContent = 'Lorem ipsum dolor sit amet';
+  article.appendChild(p);
 };
 
-let dubai = {
-  name: 'Dubai',
-  minCust: 11,
-  maxCust: 38,
-  aveSale: 3.7,
-  cookiesPerHourArray: [],
-  dailyTotal: 0,
-
-  getRandomCust: function () {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-  },
-  calcCookiesPerHour: function () {
-    for (let i = 0; i < hours.length; i++) {
-      let randomCust = this.getRandomCust();
-      let hourlyTotal = Math.ceil(randomCust * this.aveSale);
-      this.cookiesPerHourArray.push(hourlyTotal);
-      this.dailyTotal += hourlyTotal;
-    }
-  },
-  render: function () {
-    this.calcCookiesPerHour();
-    for (let i = 0; i < hours.length; i++) {
-      let li = document.createElement('li');
-      li.textContent = `${hours[i]}: ${this.cookiesPerHourArray[i]} cookies`;
-      dubaiList.appendChild(li);
-    }
-    let li = document.createElement('li');
-    li.textContent = `Total: ${this.dailyTotal} cookies`;
-    dubaiList.appendChild(li);
+function renderAll() {
+  for (let i = 0; i < allStores.length; i++) {
+    allStores[i].render();
+    allStores[i].renderSection();
   }
-};
+}
 
-let paris = {
-  name: 'Paris',
-  minCust: 20,
-  maxCust: 38,
-  aveSale: 2.3,
-  cookiesPerHourArray: [],
-  dailyTotal: 0,
+// A. Have a place on DOM to append it to! getElement by ID or quarySelector
+// 1. Create the element
+// 2. Give it content
+// 3. Append it to the DOM / it's Parent
 
-  getRandomCust: function () {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-  },
-  calcCookiesPerHour: function () {
-    for (let i = 0; i < hours.length; i++) {
-      let randomCust = this.getRandomCust();
-      let hourlyTotal = Math.ceil(randomCust * this.aveSale);
-      this.cookiesPerHourArray.push(hourlyTotal);
-      this.dailyTotal += hourlyTotal;
-    }
-  },
-  render: function () {
-    this.calcCookiesPerHour();
-    for (let i = 0; i < hours.length; i++) {
-      let li = document.createElement('li');
-      li.textContent = `${hours[i]}: ${this.cookiesPerHourArray[i]} cookies`;
-      parisList.appendChild(li);
-    }
-    let li = document.createElement('li');
-    li.textContent = `Total: ${this.dailyTotal} cookies`;
-    parisList.appendChild(li);
+function renderHeader() {
+  let thead = document.createElement('thead');
+  let tr = document.createElement('tr');
+  let th = document.createElement('th');
+  // cookieTable.appendChild(tr);
+  th.textContent = '';
+  tr.appendChild(th);
+
+  for (let i = 0; i < hour.length; i++) {
+    let th = document.createElement('th');
+    th.textContent = hour[i];
+    tr.appendChild(th);
   }
-};
+  th = document.createElement('th');
+  th.textContent = 'Daily Location Total';
+  tr.appendChild(th);
+  
+  thead.appendChild(tr);
+  // console.log(cookieTable);
+  cookieTable.appendChild(thead);
+  // append to row for most people here
+}
 
-let lima = {
-  name: 'Lima',
-  minCust: 2,
-  maxCust: 16,
-  aveSale: 4.6,
-  cookiesPerHourArray: [],
-  dailyTotal: 0,
+// FooterRow Sandbox
+function renderFooter() {
+  calcFooterTotals();
+  let tfoot = document.createElement('tfoot');
+  let tr = document.createElement('tr');
+  let td = document.createElement('td');
+  td.textContent = 'Totals';
+  tr.appendChild(td);
 
-  getRandomCust: function () {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-  },
-  calcCookiesPerHour: function () {
-    for (let i = 0; i < hours.length; i++) {
-      let randomCust = this.getRandomCust();
-      let hourlyTotal = Math.ceil(randomCust * this.aveSale);
-      this.cookiesPerHourArray.push(hourlyTotal);
-      this.dailyTotal += hourlyTotal;
-    }
-  },
-  render: function () {
-    this.calcCookiesPerHour();
-    for (let i = 0; i < hours.length; i++) {
-      let li = document.createElement('li');
-      li.textContent = `${hours[i]}: ${this.cookiesPerHourArray[i]} cookies`;
-      limaList.appendChild(li);
-    }
-    let li = document.createElement('li');
-    li.textContent = `Total: ${this.dailyTotal} cookies`;
-    limaList.appendChild(li);
+  for (let i = 0; i < hour.length; i++) {
+    let td = document.createElement('td');
+    td.textContent = footerTotals[i];
+    tr.appendChild(td);
   }
-};
+  // for (let j = 0; j < hours.length; j++) {
+  //  hourTotal = hourTotal + allStores[j].cookiesPerHour[i];
+  //   cookiesPerHour += allStores[j].cookiesPerHour[i];
+  // }
+  // let td = document.createElement('td');
+  // td.textContent = hourTotal[i];
+  // tr.appendChild(td);
+  // }
+  td = document.createElement('td');
+  td.textContent = grandTotal;
+  tr.appendChild(td);
+
+  tfoot.appendChild(tr);
+  cookieTable.appendChild(tfoot);
+}
+
+function calcFooterTotals(){
+  footerTotals = [];
+  grandTotal = 0
+  for (let i = 0; i < hour.length; i++){
+    let hourTotal = 0;
+    for (let j = 0; j < allStores.length; j++){
+      hourTotal += allStores[j].cookiesPerHour[i];
+    }
+    footerTotals.push(hourTotal);
+    grandTotal += hourTotal;
+  }
+}
+
+// function handleSubmit(event){
+//   event.preventDefault();
+
+//   let hiveName = event.target.hivename.value;
+//   let yieldOne = +event.target.yieldOne.value;
+//   let yieldTwo = +event.target.yieldTwo.value;
+//   let yieldThree = +event.target.yieldThree.value;
+//   let honeyYield = [yieldOne, yieldTwo, yieldThree];
+//   let imgSrc = event.target.imgSrc.value;
+
+//   let newHive = new BeeHive(hiveName, honeyYield, imgSrc);
+//   newHive.render();
+//   newHive.renderSection();
+
+// clear out footer row.
+// rerender footer row with correct totatls
+
+// executatble code
+// instatniations - Objects are created with constructor
+new Store('Seattle', 23, 65, 6.3, []);
+new Store('Tokyo', 3, 24, 1.2, []);
+new Store('Dubai', 11, 38, 3.7, []);
+new Store('Paris', 11, 38, 2.3, []);
+new Store('Lima', 2, 16, 4.6, []);
+
+renderHeader();
+renderAll();
+renderFooter();
 
 
-// Executable Code
-seattle.render();
-tokyo.render();
-dubai.render();
-paris.render();
-lima.render();
+myForm.AddEventListener('submit', handleSubmit);
 
-// After seattle is done, minimize, copy, paste, and replace with Tokyo
