@@ -1,25 +1,60 @@
 body {
-  font-family:'Neutron', serif;
-  background-color: bisque;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  text-align: center;
+}
+
+header {
+  background-color: pink;
+  height: auto;
+  padding: 1em;
+  border: medium double blue;
+}
+
+header img {
+  width: 200px;
+  height: 70px;
+  margin-top: 15px;
+  float: left;
 }
 
 h1 {
-  font-size: 30px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 2em;
   text-align: center;
   padding: 20px;
+}
 
+h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5em;
+  color: blue;
+}
+
+li {
+  display: inline-block;
+}
+
+li img {
+  vertical-align: middle;
 }
 
 section {
-  border: thick solid goldenrod;
+  border: thick solid blue;
   border-radius: 25px;
 }
 
 section img {
   margin: 10px;
   border-radius: 25px;
-  border: medium solid goldenrod;
+  border: medium solid blue;
   width: 600px;
+}
+
+#stores li {
+  display: inline-block;
+  margin: 2em 3em 1em 3em
+  color: green;
 }
 
 article {
@@ -59,4 +94,15 @@ td {
   font-weight: bolder;
   padding: 10px;
   margin: 1px auto;
+}
+
+span {
+  display: inline-block;
+}
+
+footer {
+  display: inline-block;
+  background-color: pink
+  width: 100%;
+  color: #000; 
 }
