@@ -1,15 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+.main-container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px; /* height of your footer */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: blue;
+  height: 6.2rem;
+  width: 100%;
+  /* margin-top: 30px; */
+}
+
+#stores li {
+  display: inline-block;
+  /* margin: 2em 3em 1em 3em; */
+  padding: 5px;
+  color: white;
+}
+
 body {
   
   font-family: Arial, Helvetica, sans-serif;
-  background-color: white;
+  background-color: salmon;
   text-align: center;
 }
 
-header {
+/* header {
   background-color: pink;
   height: auto;
   padding: 1em;
-  border: medium double blue;
+  border: medium double blue; */
+/* } */
+
+header {
+  background-color: blue;
+  color: white;
+  height: 100px;
+}
+
+/* A little help from W3Schools (https://www.w3schools.com/howto/howto_js_topnav.asp)*/
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+nav {
+  display:inline;
+  width: 960px;
+  margin-top: 5px;
+}
+
+nav a {
+  display: inline;
+  text-decoration: none;
+  color: white;
+  margin-top: 5px;
+}
+
+header img {
+  margin-top: 15px;
+  float: left;
+}
+
+header span {
+  display: inline-block;
+  line-height: 100px;
+  margin-left: 90px;
+}
+
+header span:nth-child(2) {
+  margin-left: 30px;
 }
 
 header img {
@@ -29,9 +131,62 @@ h1 {
 }
 
 h2 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.5em;
-  color: blue;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: 1.5em; 
+color: blue;
+}
+
+main {
+  width: 960px;
+  margin: auto;
+}
+
+main img {
+  margin-top: 30px;
+}
+
+main li:first-child {
+  margin-left: 0px;
+}
+main li {
+  margin-left: 30px;
+  float: left;
+}
+
+main article {
+  width: 50%;
+  float: right;
+  margin-top: 30px;
+}
+
+main h2 {
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+main p {
+  height: 330px;
+  overflow: auto;
+  margin-top: 5px;
+  margin-left: 30px;
+  font-style: italic;
+  line-height: 20px;
+}
+
+article div {
+  background-color: #111;
+  color: #eee;
+  margin-top: 5px;
+  margin-left: 30px;
+  padding: 10px 30px;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+article div:hover {
+  background-color: red;
+  transition: 350ms;
 }
 
 li {
@@ -43,7 +198,7 @@ li img {
 }
 
 section {
-  border: thick solid blue;
+  border: blue;
   border-radius: 25px;
 }
 
@@ -54,11 +209,7 @@ section img {
   width: 600px;
 }
 
-#stores li {
-  display: inline-block;
-  margin: 2em 3em 1em 3em
-  color: green;
-}
+
 
 /* article {
   width: 33%
@@ -66,19 +217,20 @@ section img {
   margin-right: 10px; */
 /* } */
 
-h3 {
+/* h3 {
   font-family: 'Neuton', serif;
   font-size: 1.5em;
   margin: 10px;
-}
+/* } */
 
-p {
-  line-height: 1.25em;
-  text-align: justify;
-}
+/* p {
+  line-height: 1.25em; */
+  /* text-align: justify; */
+/* } */
 
 table {
   border: medium solid red;
+  background-color: white;
   border-spacing: 5px;
   margin: 25px auto;
   border-collapse: separate;
@@ -101,11 +253,16 @@ td {
 
 span {
   display: inline-block;
+  /* margin: 2em 3em 1em 3em; */
+  padding: 12px;
+  color: white;
 }
 
-footer {
+/* footer {
   display: inline-block;
   background-color: pink
   width: 100%;
-  color: #000; 
-}
+  color: #000;  */
+/* } */
+
+
