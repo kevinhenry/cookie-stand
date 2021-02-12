@@ -23,7 +23,7 @@ body {
 
 .SalesHead {
   font-size: 30px;
-  color: powderblue;
+  color: blue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,7 +83,7 @@ body {
 
 .header-logo {
   font-size: 30px;
-  color: powderblue;
+  color: blue;
   display: flex;
   justify-content: center;
   align-items: center;
