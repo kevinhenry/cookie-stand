@@ -21,7 +21,7 @@ let grandTotal = 0;
 cookieTable.appendChild(tbody);
 console.log(cookieTable);
 
-function Store (name, minHourCust, maxHourCust, avgSaleCust, imgSrc, cookiesPerHour) {
+function Store (name, minHourCust, maxHourCust, avgSaleCust, imgSrc) {
   this.name = name;
   this.min = minHourCust;
   this.max = maxHourCust;
@@ -74,40 +74,6 @@ Store.prototype.render = function () {
   tbody.appendChild(tr);
 };
 
-// Store.prototype.renderSection = function () {
-//   // create section and append to DOM, all of its content is below
-//   let section = document.createElement('section');
-//   myContainer.appendChild(section);
-
-//   // create image, "give content", append to DOM
-//   let img = document.createElement('img');
-//   img.src = this.imgSrc;
-//   img.alt = 'closeup picture of xxxx';
-//   img.title = 'xxxx';
-//   section.appendChild(img);
-
-//   // create article and append to DOM, all of its content is below
-//   let article = document.createElement('article');
-//   section.appendChild(article);
-
-//   // create h3, give it content, append to DOM
-//   let h3 = document.createElement('h3');
-//   h3.textContent = this.name;
-//   article.appendChild(h3);
-
-//   // create p, give it content, append to DOM
-//   let p = document.createElement('p');
-//   p.textContent = 'Lorem ipsum dolor sit amet';
-//   article.appendChild(p);
-// };
-
-// function renderAll() {
-//   for (let i = 0; i < allStores.length; i++) {
-//     allStores[i].render();
-//     allStores[i].renderSection();
-//   }
-// }
-
 // A. Have a place on DOM to append it to! getElement by ID or quarySelector
 // 1. Create the element
 // 2. Give it content
@@ -150,14 +116,7 @@ function renderFooter() {
     td.textContent = footerTotals[i];
     tr.appendChild(td);
   }
-  // for (let j = 0; j < hours.length; j++) {
-  //  hourTotal = hourTotal + allStores[j].cookiesPerHour[i];
-  //   cookiesPerHour += allStores[j].cookiesPerHour[i];
-  // }
-  // let td = document.createElement('td');
-  // td.textContent = hourTotal[i];
-  // tr.appendChild(td);
-  // }
+
   td = document.createElement('td');
   td.textContent = grandTotal;
   tr.appendChild(td);
@@ -168,7 +127,7 @@ function renderFooter() {
 
 function calcFooterTotals(){
   footerTotals = [];
-  grandTotal = 0
+  grandTotal = 0;
   for (let i = 0; i < hour.length; i++){
     let hourTotal = 0;
     for (let j = 0; j < allStores.length; j++){
@@ -178,23 +137,6 @@ function calcFooterTotals(){
     grandTotal += hourTotal;
   }
 }
-
-// function handleSubmit(event){
-//   event.preventDefault();
-
-//   let hiveName = event.target.hivename.value;
-//   let yieldOne = +event.target.yieldOne.value;
-//   let yieldTwo = +event.target.yieldTwo.value;
-//   let yieldThree = +event.target.yieldThree.value;
-//   let honeyYield = [yieldOne, yieldTwo, yieldThree];
-//   let imgSrc = event.target.imgSrc.value;
-
-//   let newHive = new BeeHive(hiveName, honeyYield, imgSrc);
-//   newHive.render();
-//   newHive.renderSection();
-
-// clear out footer row.
-// rerender footer row with correct totatls
 
 // executatble code
 // instatniations - Objects are created with constructor
@@ -207,6 +149,3 @@ new Store('Lima', 2, 16, 4.6, []);
 renderHeader();
 // renderAll();
 renderFooter();
-
-
-// myForm.AddEventListener('submit', handleSubmit);
