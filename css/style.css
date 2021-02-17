@@ -7,6 +7,8 @@
   box-sizing: border-box;
 }
 
+/* A little help from freeCodeCamp (https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/)*/
+
 html,
 body {
   height: 100%;
@@ -67,21 +69,6 @@ body {
   background-color: salmon;
   text-align: center;
 }
-
-/* header {
-  background-color: pink;
-  height: auto;
-  padding: 1em;
-  border: medium double blue; */
-/* } */
-
-/* header {
-  background-color: blue;
-  color: white;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-} */
 
 .header-logo {
   font-size: 30px;
@@ -152,26 +139,18 @@ header span:nth-child(2) {
   margin-left: 30px;
 }
 
-/* header img {
-  width: 200px;
-  height: 70px;
-  margin-top: 15px;
-  float: left;
-  font-family: 'Neuton', serif;
-  background-color: bisque; */
-/* } */
-
 h1 {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 2em;
+  color: blue;
   text-align: center;
   padding: 20px;
 }
 
 h2 {
-font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-family: 'Holtwood One SC', serif;;
 font-size: 1.5em; 
-color: blue;
+color: whitesmoke;
 }
 
 main {
@@ -247,25 +226,6 @@ section img {
   width: 600px;
 }
 
-
-
-/* article {
-  width: 33%
-  float: right;
-  margin-right: 10px; */
-/* } */
-
-/* h3 {
-  font-family: 'Neuton', serif;
-  font-size: 1.5em;
-  margin: 10px;
-/* } */
-
-/* p {
-  line-height: 1.25em; */
-  /* text-align: justify; */
-/* } */
-
 table {
   border: medium solid red;
   background-color: silver;
@@ -298,15 +258,7 @@ td {
 
 span {
   display: inline-block;
-  /* margin: 2em 3em 1em 3em; */
+  margin: 0em 3em 1em 3em;
   padding: 12px;
   color: white;
 }
-
-/* footer {
-  display: inline-block;
-  background-color: pink
-  width: 100%;
-  color: #000;  */
-/* } */
-
