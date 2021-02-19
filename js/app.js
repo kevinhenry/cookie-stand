@@ -18,7 +18,7 @@ let tableFooter = document.getElementById('table-footer');
 // cookieTable.appendChild(tableBody);
 // console.log(cookieTable);
 
-function Store(name, minHourCust, maxHourCust, avgSaleCust) {
+function Store (name, minHourCust, maxHourCust, avgSaleCust) {
   this.name = name;
   this.min = minHourCust;
   this.max = maxHourCust;
