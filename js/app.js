@@ -143,7 +143,7 @@ function handleSubmit(event) {
   let newLocation = event.target.newlocation.value;
   let newMinCust = +event.target.minhourcust.value;
   let newMaxCust = +event.target.maxhourcust.value;
-  let newAvgCust= +event.taget.avgsalecust.value;
+  let newAvgCust= +event.target.avgsalecust.value;
   
   let newStore = new Store(newLocation, newMinCust, newMaxCust, newAvgCust);
   newStore.render();
