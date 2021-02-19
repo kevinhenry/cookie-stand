@@ -1,4 +1,4 @@
-## Cookie Stand
+# cookie-stand
 
 I'm helping my friend Pat with his business idea. I'll probably never eat a Salmon Cookie, but anything for a friend.
 
