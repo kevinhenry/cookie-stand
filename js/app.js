@@ -26,9 +26,9 @@ function Store(name, minHourCust, maxHourCust, avgSaleCust) {
   this.cookiesPerHour = [];
   this.dayTotal = 0;
   allStores.push(this);
+}
   // this.imgSrc = imgSrc;
   // this.render();
-}
 
 // REF - Math.random
 Store.prototype.randomCustHour = function () {
@@ -39,7 +39,7 @@ Store.prototype.calcCookiesSoldHour = function () {
   for (let i = 0; i < hour.length; i++) {
     // this.dayTotal += this.cookiesPerHour[i];
     let randomCust = this.randomCustHour();
-    let hourTotal = Math.ceil(randomCust * this.avg);
+    let hourTotal = Math.floor(randomCust * this.avg);
     // this.cookiesPerHour.push(Math.ceil(this.randomCustHour() * this.avgSaleCust));
     this.cookiesPerHour.push(hourTotal);
     this.dayTotal += hourTotal;
@@ -51,11 +51,9 @@ Store.prototype.render = function () {
   this.calcCookiesSoldHour();
   let tr = document.createElement('tr');
   tableBody.appendChild(tr);
-  
   let th = document.createElement('th');
   th.textContent = this.name;
   tr.appendChild(th);
-  
   for (let i = 0; i < this.cookiesPerHour.length; i++) {
     let td = document.createElement('td');
     td.textContent = this.cookiesPerHour[i];
@@ -71,7 +69,7 @@ function renderHeader() {
   // let tableHeader = document.createElement('table-header');
   let tr = document.createElement('tr');
   let th = document.createElement('th');
-  th.textContent = 'Stores';
+  th.textContent = '';
   tr.appendChild(th);
 
   for (let i = 0; i < hour.length; i++) {
@@ -141,13 +139,13 @@ function renderFooter() {
 
 function handleSubmit(event) {
   event.preventDefault();
-
-  let loc = event.target.loc.value;
-  let minHourCust = +event.target.minhourcust.value;
-  let maxHourCust = +event.target.maxhourcust.value;
-  let avgSaleCust = +event.taget.avgsalecust.value;
-
-  let newStore = new Store(loc, minHourCust, maxHourCust, avgSaleCust);
+  
+  let newLocation = event.target.newlocation.value;
+  let newMinCust = +event.target.minhourcust.value;
+  let newMaxCust = +event.target.maxhourcust.value;
+  let newAvgCust= +event.taget.avgsalecust.value;
+  
+  let newStore = new Store(newLocation, newMinCust, newMaxCust, newAvgCust);
   newStore.render();
   tableFooter.removeChild(tableFooter.lastChild);
   renderFooter();
