@@ -28,11 +28,32 @@
         <!-- <br></br> -->
       </div>
     </header>
-    <table>
+    <main>
+      <form id="form">
+        <fieldset>
+          <legend>New Cookie Stand Info</legend>
+          <lable for="loc">New Stand Location</lable>
+          <input type="text" name="newlocation" required="required">
+
+          <lable for="minhourcust">Minimum Customers Per Hour</lable>
+          <input type="number" min="0" name="minhourcust" required="required">
+
+          <lable for="maxhourcust">Maximum Customers Per Hour</lable>
+          <input type="number" min="0" name="maxhourcust" required="required">
+
+          <lable for="avgsalecust">Average Amount of Cookies Per Customer</lable>
+          <input type="number" min="0" name="avgsalecust" required="required">
+
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+
       <table id="cookie-table">
-        <tfoot id="table-foot">
-        </tfoot>
+        <thead id="table-header"></thead>
+        <tbody id="table-body"></tbody>
+        <tfoot id="table-footer"></tfoot>
       </table>
+
       <footer id="footer">
         <div>
           <span>
@@ -72,8 +93,9 @@
           </span>
         </div>
         <article></article>
-        <script src="js/app.js"></script>
-      </footer>
+    </main>
+    <script src="js/app.js"></script>
+    </footer>
 </body>
 
 </html>
