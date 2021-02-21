@@ -175,7 +175,7 @@ main article {
 
 main h2 {
   margin-left: 30px;
-  font-size: 20px;
+   font-size: 20px;
 }
 
 main p {
@@ -192,6 +192,7 @@ article div {
   color: #eee;
   margin-top: 5px;
   margin-left: 30px;
+  /* margin-right: 30px; */
   padding: 10px 30px;
   display: inline-block;
   font-size: 20px;
